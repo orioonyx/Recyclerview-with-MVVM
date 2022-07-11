@@ -3,26 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/charactersFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.kyungeun.recyclerview_with_mvvm.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/charactersFragment"
+        android:name="com.kyungeun.recyclerview_with_mvvm.ui.characters.CharactersFragment"
+        android:label="Characters"
+        tools:layout="@layout/characters_fragment" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.kyungeun.recyclerview_with_mvvm.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/characterDetailFragment"
+        android:name="com.kyungeun.recyclerview_with_mvvm.ui.characterdetail.CharacterDetailFragment"
+        android:label="Character Detail"
+        tools:layout="@layout/character_detail_fragment" />
 </navigation>
