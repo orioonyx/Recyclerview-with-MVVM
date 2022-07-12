@@ -15,91 +15,73 @@
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/character_cl"
+        android:id="@+id/product_cl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/image">
+
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:text="TextView"
-            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:layout_marginTop="7dp"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image" />
+            android:layout_marginTop="20dp"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/species_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
-            android:text="Species:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
-        <TextView
-            android:id="@+id/species"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="60dp"
-            tools:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
-        <TextView
-            android:id="@+id/status_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray"
             android:layout_marginTop="10dp"
-            android:text="Status:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/species_text" />
+            app:layout_constraintTop_toBottomOf="@+id/top_layout"/>
 
         <TextView
-            android:id="@+id/status"
+            android:id="@+id/info_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:padding="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="60dp"
-            tools:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/species" />
-
-        <TextView
-            android:id="@+id/gender_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:text="Gender:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/status_text" />
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="60dp"
-            tools:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/status" />
-
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintLeft_toLeftOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.kyungeun.recyclerview_with_mvvm.ui.characters
+package com.kyungeun.recyclerview_with_mvvm.ui.products
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Character
-import com.kyungeun.recyclerview_with_mvvm.databinding.ItemCharacterBinding
+import com.kyungeun.recyclerview_with_mvvm.databinding.ItemProductBinding
 
 class CharactersAdapter(private val listener: CharacterItemListener) : RecyclerView.Adapter<CharacterViewHolder>() {
 
@@ -25,7 +25,7 @@ class CharactersAdapter(private val listener: CharacterItemListener) : RecyclerV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val binding: ItemCharacterBinding = ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding: ItemProductBinding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CharacterViewHolder(binding, listener)
     }
 
@@ -34,7 +34,7 @@ class CharactersAdapter(private val listener: CharacterItemListener) : RecyclerV
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) = holder.bind(items[position])
 }
 
-class CharacterViewHolder(private val itemBinding: ItemCharacterBinding, private val listener: CharactersAdapter.CharacterItemListener) : RecyclerView.ViewHolder(itemBinding.root),
+class CharacterViewHolder(private val itemBinding: ItemProductBinding, private val listener: CharactersAdapter.CharacterItemListener) : RecyclerView.ViewHolder(itemBinding.root),
     View.OnClickListener {
 
     private lateinit var character: Character
@@ -46,12 +46,17 @@ class CharacterViewHolder(private val itemBinding: ItemCharacterBinding, private
     @SuppressLint("SetTextI18n")
     fun bind(item: Character) {
         this.character = item
-        itemBinding.name.text = item.name
-        itemBinding.speciesAndStatus.text = """${item.species} - ${item.status}"""
+        itemBinding.storeName.text = item.name
+        itemBinding.productName.text = item.species
+        itemBinding.price.text = item.status
+
+
         Glide.with(itemBinding.root)
             .load(item.image)
-            .transform(CircleCrop())
+            .override(512, 512)
+            .error(R.drawable.empty)
             .into(itemBinding.image)
+
     }
 
     override fun onClick(v: View?) {

@@ -1,4 +1,4 @@
-package com.kyungeun.recyclerview_with_mvvm.ui.characters
+package com.kyungeun.recyclerview_with_mvvm.ui.products
 
 import androidx.lifecycle.ViewModel
 import com.kyungeun.recyclerview_with_mvvm.data.repository.CharacterRepository

@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.kyungeun.recyclerview_with_mvvm.ui.characters.CharactersFragment"
-        android:label="Characters"
-        tools:layout="@layout/characters_fragment" >
+        android:name="com.kyungeun.recyclerview_with_mvvm.ui.products.ProductsFragment"
+        android:label="Products"
+        tools:layout="@layout/products_fragment" >
         <action
             android:id="@+id/action_charactersFragment_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />
@@ -18,6 +18,6 @@
     <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.kyungeun.recyclerview_with_mvvm.ui.characterdetail.CharacterDetailFragment"
-        android:label="Character Detail"
+        android:label="Product Detail"
         tools:layout="@layout/character_detail_fragment" />
 </navigation>

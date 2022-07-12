@@ -8,8 +8,10 @@ import androidx.lifecycle.switchMap
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Character
 import com.kyungeun.recyclerview_with_mvvm.data.repository.CharacterRepository
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+@HiltViewModel
 class CharacterDetailViewModel @Inject constructor(
     private val repository: CharacterRepository
 ) : ViewModel() {

@@ -1,4 +1,4 @@
-package com.kyungeun.recyclerview_with_mvvm.ui.characters
+package com.kyungeun.recyclerview_with_mvvm.ui.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,18 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.kyungeun.recyclerview_with_mvvm.R
-import com.kyungeun.recyclerview_with_mvvm.databinding.CharactersFragmentBinding
+import com.kyungeun.recyclerview_with_mvvm.databinding.ProductsFragmentBinding
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
 import com.kyungeun.recyclerview_with_mvvm.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
+class ProductsFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
-    private var binding: CharactersFragmentBinding by autoCleared()
+    private var binding: ProductsFragmentBinding by autoCleared()
     private val viewModel: CharactersViewModel by viewModels()
     private lateinit var adapter: CharactersAdapter
 
@@ -29,7 +29,7 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharactersFragmentBinding.inflate(inflater, container, false)
+        binding = ProductsFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,8 +41,9 @@ class CharactersFragment : Fragment(), CharactersAdapter.CharacterItemListener {
 
     private fun setupRecyclerView() {
         adapter = CharactersAdapter(this)
-        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
-        binding.charactersRv.adapter = adapter
+//        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.productRv.layoutManager = GridLayoutManager(requireContext(),2)
+        binding.productRv.adapter = adapter
     }
 
     private fun setupObservers() {

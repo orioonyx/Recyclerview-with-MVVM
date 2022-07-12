@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Character
 import com.kyungeun.recyclerview_with_mvvm.databinding.CharacterDetailFragmentBinding
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
@@ -42,7 +43,7 @@ class CharacterDetailFragment : Fragment() {
                 Resource.Status.SUCCESS -> {
                     bindCharacter(it.data!!)
                     binding.progressBar.visibility = View.GONE
-                    binding.characterCl.visibility = View.VISIBLE
+                    binding.productCl.visibility = View.VISIBLE
                 }
 
                 Resource.Status.ERROR ->
@@ -50,20 +51,21 @@ class CharacterDetailFragment : Fragment() {
 
                 Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
-                    binding.characterCl.visibility = View.GONE
+                    binding.productCl.visibility = View.GONE
                 }
             }
         })
     }
 
     private fun bindCharacter(character: Character) {
-        binding.name.text = character.name
-        binding.species.text = character.species
-        binding.status.text = character.status
-        binding.gender.text = character.gender
+        binding.storeName.text = character.name
+        binding.productName.text = character.species
+        binding.price.text = character.status
+        binding.infoText.text = character.gender
         Glide.with(binding.root)
             .load(character.image)
-            .transform(CircleCrop())
+            .override(512, 512)
+            .error(R.drawable.empty)
             .into(binding.image)
     }
 }
