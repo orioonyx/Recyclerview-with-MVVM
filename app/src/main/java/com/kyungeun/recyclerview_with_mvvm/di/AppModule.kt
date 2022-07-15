@@ -1,13 +1,11 @@
 package com.kyungeun.recyclerview_with_mvvm.di
 
 import android.content.Context
-import com.kyungeun.recyclerview_with_mvvm.data.repository.CharacterRepository
+import com.kyungeun.recyclerview_with_mvvm.data.repository.DrinkRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.kyungeun.recyclerview_with_mvvm.data.local.AppDatabase
-import com.kyungeun.recyclerview_with_mvvm.data.local.CharacterDao
-import com.kyungeun.recyclerview_with_mvvm.data.remote.CharacterRemoteDataSource
-import com.kyungeun.recyclerview_with_mvvm.data.remote.CharacterService
+import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkRemoteDataSource
+import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,10 +19,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    //https://www.thecocktaildb.com/api.php use free api
     @Singleton
     @Provides
     fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
-        .baseUrl("https://rickandmortyapi.com/api/")
+        .baseUrl("https://www.thecocktaildb.com/api/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
@@ -32,24 +31,15 @@ object AppModule {
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    fun provideCharacterService(retrofit: Retrofit): CharacterService = retrofit.create(CharacterService::class.java)
+    fun provideCharacterService(retrofit: Retrofit): DrinkService = retrofit.create(DrinkService::class.java)
 
     @Singleton
     @Provides
-    fun provideCharacterRemoteDataSource(characterService: CharacterService) = CharacterRemoteDataSource(characterService)
+    fun provideCharacterRemoteDataSource(characterService: DrinkService) = DrinkRemoteDataSource(characterService)
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
-
-    @Singleton
-    @Provides
-    fun provideCharacterDao(db: AppDatabase) = db.characterDao()
-
-    @Singleton
-    @Provides
-    fun provideRepository(remoteDataSource: CharacterRemoteDataSource,
-                          localDataSource: CharacterDao
+    fun provideRepository(remoteDataSource: DrinkRemoteDataSource
     ) =
-        CharacterRepository(remoteDataSource, localDataSource)
+        DrinkRepository(remoteDataSource)
 }

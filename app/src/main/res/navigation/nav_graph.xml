@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/charactersFragment">
+    app:startDestination="@id/drinksFragment">
 
     <fragment
-        android:id="@+id/charactersFragment"
-        android:name="com.kyungeun.recyclerview_with_mvvm.ui.products.ProductsFragment"
-        android:label="Products"
-        tools:layout="@layout/products_fragment" >
+        android:id="@+id/drinksFragment"
+        android:name="com.kyungeun.recyclerview_with_mvvm.ui.drinks.DrinksFragment"
+        android:label="Cocktail"
+        tools:layout="@layout/drinks_fragment" >
         <action
-            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
-            app:destination="@id/characterDetailFragment" />
+            android:id="@+id/action_drinksFragment_to_drinkDetailFragment"
+            app:destination="@id/drinkDetailFragment" />
 
     </fragment>
     <fragment
-        android:id="@+id/characterDetailFragment"
-        android:name="com.kyungeun.recyclerview_with_mvvm.ui.characterdetail.CharacterDetailFragment"
-        android:label="Product Detail"
-        tools:layout="@layout/character_detail_fragment" />
+        android:id="@+id/drinkDetailFragment"
+        android:name="com.kyungeun.recyclerview_with_mvvm.ui.drinkdetail.DrinkDetailFragment"
+        android:label="Cocktail Detail"
+        tools:layout="@layout/drink_detail_fragment" />
 </navigation>
