@@ -15,7 +15,7 @@
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/product_cl"
+        android:id="@+id/drink_cl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/image">
 
         <TextView
-            android:id="@+id/store_name"
+            android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -46,7 +46,7 @@
             android:textStyle="normal"/>
 
         <TextView
-            android:id="@+id/product_name"
+            android:id="@+id/alcoholic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
@@ -55,7 +55,7 @@
             android:layout_marginTop="7dp"/>
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@+id/top_layout"/>
 
         <TextView
-            android:id="@+id/info_text"
+            android:id="@+id/info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"

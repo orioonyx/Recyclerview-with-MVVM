@@ -51,10 +51,10 @@ class DrinksFragment : Fragment(), DrinksAdapter.DrinkItemListener {
         }
     }
 
-    override fun onClickedCharacter(characterId: Int) {
+    override fun onClickedDrink(drinkId: Int) {
         findNavController().navigate(
             R.id.action_drinksFragment_to_drinkDetailFragment,
-            bundleOf("id" to characterId)
+            bundleOf("id" to drinkId)
         )
     }
 }

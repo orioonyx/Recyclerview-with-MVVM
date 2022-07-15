@@ -13,7 +13,7 @@ import com.kyungeun.recyclerview_with_mvvm.databinding.ItemDrinkBinding
 class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adapter<DrinkViewHolder>() {
 
     interface DrinkItemListener {
-        fun onClickedCharacter(characterId: Int)
+        fun onClickedDrink(drinkId: Int)
     }
 
     private val items = ArrayList<Drink>()
@@ -60,7 +60,7 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
     }
 
     override fun onClick(v: View?) {
-        listener.onClickedCharacter(user.id)
+        listener.onClickedDrink(user.id)
     }
 }
 

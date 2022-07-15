@@ -7,5 +7,6 @@ data class Drink (
     @SerializedName("strDrink") val  name: String,
     @SerializedName("strAlcoholic") val  alcoholic: String,
     @SerializedName("strCategory") val  category: String,
-    @SerializedName("strDrinkThumb") val  image: String
+    @SerializedName("strDrinkThumb") val  image: String,
+    @SerializedName("strInstructions") val  info: String
 )

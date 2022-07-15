@@ -29,28 +29,10 @@ class DrinkDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getInt("id")?.let { viewModel.start(it) }
 
-        setupObservers()
+
     }
 
-    private fun setupObservers() {
-//        viewModel.character.observe(viewLifecycleOwner, Observer {
-//            when (it.status) {
-//                Resource.Status.SUCCESS -> {
-//                    bindCharacter(it.data!!)
-//                    binding.progressBar.visibility = View.GONE
-//                    binding.productCl.visibility = View.VISIBLE
-//                }
-//
-//                Resource.Status.ERROR ->
-//                    Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
-//
-//                Resource.Status.LOADING -> {
-//                    binding.progressBar.visibility = View.VISIBLE
-//                    binding.productCl.visibility = View.GONE
-//                }
-//            }
-//        })
-    }
+
 //
 //    private fun bindCharacter(character: Character) {
 //        binding.storeName.text = character.name

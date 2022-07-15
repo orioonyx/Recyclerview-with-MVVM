@@ -14,18 +14,5 @@ class DrinkDetailViewModel @Inject constructor(
     private val repository: DrinkRepository
 ) : ViewModel() {
 
-    private val _id = MutableLiveData<Int>()
-//
-//    private val _character = _id.switchMap { id ->
-//        repository.getProducts(id)
-//    }
-//    val character: LiveData<Resource<Character>> = _character
-//
-//
-@SuppressLint("TimberArgCount")
-fun start(id: Int) {
-        _id.value = id
-    Timber.e("ddddddddd","viewModel.start(it) $_id")
-    }
 
 }
