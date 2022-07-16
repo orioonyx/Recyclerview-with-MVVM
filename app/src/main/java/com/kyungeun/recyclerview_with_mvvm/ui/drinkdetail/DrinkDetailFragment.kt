@@ -27,7 +27,7 @@ class DrinkDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.getInt("id")?.let { viewModel.start(it) }
+       // arguments?.getInt("id")?.let { viewModel.start(it) }
 
 
     }

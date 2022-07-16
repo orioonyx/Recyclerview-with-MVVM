@@ -7,7 +7,11 @@ import javax.inject.Inject
 class DrinkRepository @Inject constructor(
     private val remoteDataSource: DrinkRemoteDataSource
 ) {
-    suspend fun getDrink(): List<Drink> {
-        return remoteDataSource.getDrink().data!!.results
+    suspend fun getAllDrink(): List<Drink> {
+        return remoteDataSource.getAllDrink().data!!.results
+    }
+
+    suspend fun getDrink(id: Int): Drink {
+        return remoteDataSource.getDrink(id).data!!
     }
 }
