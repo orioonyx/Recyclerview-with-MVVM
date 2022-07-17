@@ -10,7 +10,6 @@ import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +24,5 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-
     }
 }

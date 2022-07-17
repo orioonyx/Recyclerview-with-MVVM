@@ -44,7 +44,6 @@ class DrinkDetailFragment : Fragment() {
                     binding.progressBar.visibility = View.GONE
                     binding.drinkCl.visibility = View.VISIBLE
                 }
-
                 Resource.Status.ERROR ->
                     Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
 
@@ -65,7 +64,7 @@ class DrinkDetailFragment : Fragment() {
             .load(drink.image)
             .override(512, 512)
             .dontAnimate()
-            .error(R.drawable.empty)
+            .error(R.drawable.error)
             .into(binding.image)
     }
 }

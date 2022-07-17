@@ -50,14 +50,12 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
         itemBinding.alcoholic.text = item.alcoholic
         itemBinding.name.text = item.name
 
-
         Glide.with(itemBinding.root)
             .load(item.image)
             .override(512, 512)
             .dontAnimate()
-            .error(R.drawable.empty)
+            .error(R.drawable.error)
             .into(itemBinding.image)
-
     }
 
     override fun onClick(v: View?) {

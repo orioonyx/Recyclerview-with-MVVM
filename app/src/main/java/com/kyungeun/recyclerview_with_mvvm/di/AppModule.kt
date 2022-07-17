@@ -1,16 +1,14 @@
 package com.kyungeun.recyclerview_with_mvvm.di
 
-import android.content.Context
-import com.kyungeun.recyclerview_with_mvvm.data.repository.DrinkRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkRemoteDataSource
 import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkService
 import com.kyungeun.recyclerview_with_mvvm.data.remote.NullOnEmptyConverterFactory
+import com.kyungeun.recyclerview_with_mvvm.data.repository.DrinkRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

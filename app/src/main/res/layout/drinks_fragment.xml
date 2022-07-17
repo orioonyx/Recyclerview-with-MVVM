@@ -28,6 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:indeterminate="true"
+            android:indeterminateTint="@color/gray"
             android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

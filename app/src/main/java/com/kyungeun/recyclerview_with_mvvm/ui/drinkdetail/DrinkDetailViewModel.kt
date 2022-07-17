@@ -1,15 +1,13 @@
 package com.kyungeun.recyclerview_with_mvvm.ui.drinkdetail
 
-
-import android.annotation.SuppressLint
-import androidx.lifecycle.*
-import com.kyungeun.recyclerview_with_mvvm.data.entities.Drink
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
 import com.kyungeun.recyclerview_with_mvvm.data.entities.DrinkList
 import com.kyungeun.recyclerview_with_mvvm.data.repository.DrinkRepository
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
