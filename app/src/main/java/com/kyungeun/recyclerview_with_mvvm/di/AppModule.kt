@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkRemoteDataSource
 import com.kyungeun.recyclerview_with_mvvm.data.remote.DrinkService
+import com.kyungeun.recyclerview_with_mvvm.data.remote.NullOnEmptyConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +25,7 @@ object AppModule {
     @Provides
     fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
         .baseUrl("https://www.thecocktaildb.com/api/")
+        .addConverterFactory(NullOnEmptyConverterFactory())
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 

@@ -15,13 +15,13 @@ class DrinksViewModel @Inject constructor(
     private val repository: DrinkRepository
 ) : ViewModel() {
 
-    val drinkList: MutableLiveData<List<Drink>> = MutableLiveData()
+//    val drinkList: MutableLiveData<List<Drink>> = MutableLiveData()
+//
+//    init {
+//        viewModelScope.launch {
+//            drinkList.value = repository.getAllDrink()
+//        }
+//    }
 
-    init {
-        viewModelScope.launch {
-            drinkList.value = repository.getAllDrink()
-        }
-    }
-
-
+    val drinkList = repository.getAllDrink()
 }

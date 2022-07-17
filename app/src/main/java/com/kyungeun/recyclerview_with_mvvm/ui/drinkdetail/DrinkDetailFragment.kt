@@ -15,7 +15,6 @@ import com.kyungeun.recyclerview_with_mvvm.databinding.DrinkDetailFragmentBindin
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
 import com.kyungeun.recyclerview_with_mvvm.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class DrinkDetailFragment : Fragment() {
@@ -41,7 +40,7 @@ class DrinkDetailFragment : Fragment() {
         viewModel.drink.observe(viewLifecycleOwner, Observer {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    bindCharacter(it.data!!)
+                    bindCharacter(it.data!!.results[0])
                     binding.progressBar.visibility = View.GONE
                     binding.drinkCl.visibility = View.VISIBLE
                 }
@@ -65,6 +64,7 @@ class DrinkDetailFragment : Fragment() {
         Glide.with(binding.root)
             .load(drink.image)
             .override(512, 512)
+            .dontAnimate()
             .error(R.drawable.empty)
             .into(binding.image)
     }

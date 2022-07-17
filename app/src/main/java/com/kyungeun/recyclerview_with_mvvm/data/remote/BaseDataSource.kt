@@ -9,6 +9,7 @@ abstract class BaseDataSource {
     protected suspend fun <T> getResult(call: suspend () -> Response<T>): Resource<T> {
         try {
             val response = call()
+            Timber.e("response $response")
             if (response.isSuccessful) {
                 val body = response.body()
                 if (body != null) return Resource.success(body)
@@ -20,7 +21,7 @@ abstract class BaseDataSource {
     }
 
     private fun <T> error(message: String): Resource<T> {
-        Timber.d(message)
+        Timber.e(message)
         return Resource.error("Network call has failed for a following reason: $message")
     }
 

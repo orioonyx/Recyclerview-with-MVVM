@@ -15,6 +15,7 @@ import com.kyungeun.recyclerview_with_mvvm.data.entities.Drink
 import com.kyungeun.recyclerview_with_mvvm.databinding.DrinksFragmentBinding
 import com.kyungeun.recyclerview_with_mvvm.utils.autoCleared
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 
 @AndroidEntryPoint
@@ -47,7 +48,7 @@ class DrinksFragment : Fragment(), DrinksAdapter.DrinkItemListener {
     @SuppressLint("FragmentLiveDataObserve")
     private fun setupObservers() {
         viewModel.drinkList.observe(this) {
-            viewModel.drinkList.value?.let { it -> adapter.setItems(it as ArrayList<Drink>) }
+            viewModel.drinkList.value?.data?.results.let { it -> adapter.setItems(it as ArrayList<Drink>) }
         }
     }
 

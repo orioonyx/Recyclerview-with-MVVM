@@ -7,6 +7,5 @@ class DrinkRemoteDataSource @Inject constructor(
 ): BaseDataSource() {
 
     suspend fun getAllDrink() = getResult { drinkService.getAllDrinks() }
-
     suspend fun getDrink(id: Int) = getResult { drinkService.getDrink(id) }
 }

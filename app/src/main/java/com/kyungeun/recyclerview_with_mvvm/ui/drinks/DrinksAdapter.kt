@@ -54,6 +54,7 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
         Glide.with(itemBinding.root)
             .load(item.image)
             .override(512, 512)
+            .dontAnimate()
             .error(R.drawable.empty)
             .into(itemBinding.image)
 
