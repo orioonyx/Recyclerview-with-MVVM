@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/drinksFragment"
         android:name="com.kyungeun.recyclerview_with_mvvm.ui.drinks.DrinksFragment"
-        android:label="Cocktail"
+        android:label="Drinks"
         tools:layout="@layout/drinks_fragment" >
         <action
             android:id="@+id/action_drinksFragment_to_drinkDetailFragment"
@@ -18,6 +18,6 @@
     <fragment
         android:id="@+id/drinkDetailFragment"
         android:name="com.kyungeun.recyclerview_with_mvvm.ui.drinkdetail.DrinkDetailFragment"
-        android:label="Cocktail Detail"
+        android:label="Drink Detail"
         tools:layout="@layout/drink_detail_fragment" />
 </navigation>
