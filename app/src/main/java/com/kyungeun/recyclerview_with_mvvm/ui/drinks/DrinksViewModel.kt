@@ -21,7 +21,6 @@ class DrinksViewModel @Inject constructor(
         viewModelScope.launch {
             drinkList.value = repository.getAllDrink()
         }
-
     }
 
 
