@@ -13,7 +13,6 @@ Libraries used on the sample project
  
  
 # Demo
-------------------------------------
 ![](./image/drink.png)
  
  
