@@ -14,7 +14,7 @@ Libraries used on the sample project
  
 # Demo
 ------------------------------------
-![](./image/drink-detail.png)
+![](./image/drink.png)
  
  
 Developed By
