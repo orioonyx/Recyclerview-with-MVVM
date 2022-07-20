@@ -1,7 +1,7 @@
 # Android Recyclerview with MVVM Sample
 
-<img align="right" src="./image/drink.jpg" width="200">
-<img align="right" src="./image/drink-d.jpg" width="200">
+<img align="left" src="./image/drink.jpg" width="200"><br/>
+<img align="left" src="./image/drink-d.jpg" width="200"><br/><br/>
 
 A simple demo project based on Recyclerview with MVVM clean architecture.
 
