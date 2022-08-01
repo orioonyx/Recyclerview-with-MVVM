@@ -8,8 +8,8 @@ plugins {
 android {
     compileSdk 32
 
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding true
     }
 
     defaultConfig {
@@ -35,13 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -79,12 +75,12 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.38.1"
 
     //Room
-    def room_version = "2.3.0-beta01"
-    implementation "androidx.room:room-runtime:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    //apple M1 build error solution
-    kapt "org.xerial:sqlite-jdbc:3.34.0"
+//    def room_version = "2.3.0-beta01"
+//    implementation "androidx.room:room-runtime:$room_version"
+//    implementation "androidx.room:room-ktx:$room_version"
+//    kapt "androidx.room:room-compiler:$room_version"
+//    //apple M1 build error solution
+//    kapt "org.xerial:sqlite-jdbc:3.34.0"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
