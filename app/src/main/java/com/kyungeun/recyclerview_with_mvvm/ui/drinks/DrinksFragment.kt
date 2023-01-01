@@ -49,8 +49,7 @@ class DrinksFragment : Fragment(), DrinksAdapter.DrinkItemListener {
     private fun setupObservers() {
         viewModel.drinkList.observe(
             viewLifecycleOwner
-        ) { it ->
-            when (it.status) {
+        ) { when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
                     if (!it.data?.results.isNullOrEmpty()) adapter.setItems(ArrayList(it.data!!.results))
