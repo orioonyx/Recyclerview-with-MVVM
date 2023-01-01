@@ -3,6 +3,7 @@ package com.kyungeun.recyclerview_with_mvvm.data.remote
 import com.kyungeun.recyclerview_with_mvvm.utils.Resource
 import retrofit2.Response
 import timber.log.Timber
+import java.io.IOException
 
 abstract class BaseDataSource {
 
@@ -14,7 +15,8 @@ abstract class BaseDataSource {
                 if (body != null) return Resource.success(body)
             }
             return error(" ${response.code()} ${response.message()}")
-        } catch (e: Exception) {
+        } catch (e: IOException) {
+            Timber.e(e)
             return error(e.message ?: e.toString())
         }
     }
