@@ -11,6 +11,7 @@ Libraries used on the sample project
  * Retrofit
  * Navigation
  * Glide
+ * Kt-lint
  
  
 # Demo
