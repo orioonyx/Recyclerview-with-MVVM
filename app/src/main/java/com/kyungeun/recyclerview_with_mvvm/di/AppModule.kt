@@ -18,10 +18,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    //https://www.thecocktaildb.com/api.php use free api
+    // https://www.thecocktaildb.com/api.php use free api
     @Singleton
     @Provides
-    fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
+    fun provideRetrofit(gson: Gson): Retrofit = Retrofit.Builder()
         .baseUrl("https://www.thecocktaildb.com/api/")
         .addConverterFactory(NullOnEmptyConverterFactory())
         .addConverterFactory(GsonConverterFactory.create(gson))
@@ -39,7 +39,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRepository(remoteDataSource: DrinkRemoteDataSource
+    fun provideRepository(
+        remoteDataSource: DrinkRemoteDataSource
     ) =
         DrinkRepository(remoteDataSource)
 }

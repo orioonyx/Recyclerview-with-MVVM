@@ -23,5 +23,4 @@ abstract class BaseDataSource {
         Timber.e(message)
         return Resource.error("Network call has failed for a following reason: $message")
     }
-
 }

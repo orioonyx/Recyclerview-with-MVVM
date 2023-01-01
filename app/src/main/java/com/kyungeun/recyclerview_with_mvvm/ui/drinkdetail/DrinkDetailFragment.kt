@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Drink
@@ -23,9 +22,10 @@ class DrinkDetailFragment : Fragment() {
     private val viewModel: DrinkDetailViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DrinkDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -37,7 +37,9 @@ class DrinkDetailFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.drink.observe(viewLifecycleOwner, Observer {
+        viewModel.drink.observe(
+            viewLifecycleOwner
+        ) {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     bindCharacter(it.data!!.results[0])
@@ -52,7 +54,7 @@ class DrinkDetailFragment : Fragment() {
                     binding.drinkCl.visibility = View.GONE
                 }
             }
-        })
+        }
     }
 
     private fun bindCharacter(drink: Drink) {

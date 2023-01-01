@@ -23,7 +23,6 @@ class DrinkDetailViewModel @Inject constructor(
 
     val drink: LiveData<Resource<DrinkList>> = _drink
 
-
     fun start(id: Int) {
         _id.value = id
     }

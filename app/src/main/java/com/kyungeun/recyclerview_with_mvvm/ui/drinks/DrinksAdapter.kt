@@ -18,6 +18,7 @@ class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adap
 
     private val items = ArrayList<Drink>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(items: ArrayList<Drink>) {
         this.items.clear()
         this.items.addAll(items)
@@ -34,7 +35,8 @@ class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adap
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) = holder.bind(items[position])
 }
 
-class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val listener: DrinksAdapter.DrinkItemListener) : RecyclerView.ViewHolder(itemBinding.root),
+class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val listener: DrinksAdapter.DrinkItemListener) :
+    RecyclerView.ViewHolder(itemBinding.root),
     View.OnClickListener {
 
     private lateinit var user: Drink
@@ -62,4 +64,3 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
         listener.onClickedDrink(user.id)
     }
 }
-
