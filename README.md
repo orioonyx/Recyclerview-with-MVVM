@@ -10,6 +10,7 @@ Libraries used on the sample project
  * Kotlin Coroutines
  * Retrofit
  * Navigation
+ * Glide
  
  
 # Demo
