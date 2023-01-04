@@ -5,7 +5,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Registry
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.load.Options
-import com.bumptech.glide.load.model.*
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.ModelCache
+import com.bumptech.glide.load.model.ModelLoader
+import com.bumptech.glide.load.model.ModelLoaderFactory
+import com.bumptech.glide.load.model.MultiModelLoaderFactory
 import com.bumptech.glide.load.model.stream.BaseGlideUrlLoader
 import com.bumptech.glide.module.AppGlideModule
 import java.io.InputStream
@@ -63,7 +67,7 @@ class VariableWidthImageLoader(concreteLoader: ModelLoader<GlideUrl?, InputStrea
                     if (bestBucket > 0) {
                         // Replace the width parameter with the best bucket
                         // url example : myserver.com/images/w200/session1.jpg
-                        glideModel =  m.replaceFirst("w$bestBucket")
+                        glideModel = m.replaceFirst("w$bestBucket")
                     }
                 }
             }
