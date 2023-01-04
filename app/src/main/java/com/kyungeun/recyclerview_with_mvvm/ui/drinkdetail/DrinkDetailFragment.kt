@@ -44,14 +44,14 @@ class DrinkDetailFragment : Fragment() {
                 Resource.Status.SUCCESS -> {
                     bindCharacter(it.data!!.results[0])
                     binding.progressBar.visibility = View.GONE
-                    binding.drinkCl.visibility = View.VISIBLE
+                    binding.drinkView.visibility = View.VISIBLE
                 }
                 Resource.Status.ERROR ->
                     Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
 
                 Resource.Status.LOADING -> {
                     binding.progressBar.visibility = View.VISIBLE
-                    binding.drinkCl.visibility = View.GONE
+                    binding.drinkView.visibility = View.GONE
                 }
             }
         }
