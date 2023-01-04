@@ -49,14 +49,16 @@ class DrinksFragment : Fragment(), DrinksAdapter.DrinkItemListener {
     private fun setupObservers() {
         viewModel.drinkList.observe(
             viewLifecycleOwner
-        ) { when (it.status) {
+        ) {
+            when (it.status) {
                 Resource.Status.SUCCESS -> {
                     binding.progressBar.visibility = View.GONE
                     if (!it.data?.results.isNullOrEmpty()) adapter.setItems(ArrayList(it.data!!.results))
                 }
-                Resource.Status.ERROR ->
+                Resource.Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-
+                }
                 Resource.Status.LOADING ->
                     binding.progressBar.visibility = View.VISIBLE
             }
