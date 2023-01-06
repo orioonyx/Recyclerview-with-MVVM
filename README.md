@@ -1,6 +1,8 @@
 # Android Recyclerview with MVVM Sample
 
-A simple demo project based on Recyclerview with MVVM clean architecture.
+A simple demo project based on Recyclerview with MVVM clean architecture.<br>
+Also Image loading optimization is done using Glide.
+
 
 Libraries used on the sample project
 ------------------------------------
@@ -11,7 +13,7 @@ Libraries used on the sample project
  * Retrofit
  * Navigation
  * Glide
- * Kt-lint
+ * Kt-lint & detekt
  
  
 # Demo

@@ -47,7 +47,7 @@ class VariableWidthImageLoader(concreteLoader: ModelLoader<GlideUrl?, InputStrea
 
     override fun getUrl(model: String, width: Int, height: Int, options: Options?): String {
         // Check for a width parameter in the URL
-        // url example : myserver.com/images/ __w-200-400-600-800-1000__ /session1.jpg
+        // url example : myserver.com/images/__w-200-400-600-800-1000__/session1.jpg
         var glideModel = model
 
         val m: Matcher = URL_WIDTH_PATTERN.matcher(glideModel)

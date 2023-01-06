@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.ObjectKey
 import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Drink
 import com.kyungeun.recyclerview_with_mvvm.databinding.ItemDrinkBinding
@@ -52,11 +54,16 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
         itemBinding.alcoholic.text = item.alcoholic
         itemBinding.name.text = item.name
 
-        Glide.with(itemBinding.root)
+        // Set the signature to be the last modified time of the image file.
+        val imageMetadata = item.dateModified?.let { ObjectKey(it) } ?: ObjectKey("")
+
+        Glide.with(itemBinding.root.context)
             .load(item.image)
             .override(512, 512)
             .dontAnimate()
             .error(R.drawable.error)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .signature(imageMetadata)
             .into(itemBinding.image)
     }
 

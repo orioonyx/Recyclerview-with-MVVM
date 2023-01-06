@@ -52,11 +52,11 @@ class DrinksFragment : Fragment(), DrinksAdapter.DrinkItemListener {
         ) {
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.INVISIBLE
                     if (!it.data?.results.isNullOrEmpty()) adapter.setItems(ArrayList(it.data!!.results))
                 }
                 Resource.Status.ERROR -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 }
                 Resource.Status.LOADING ->
