@@ -106,7 +106,6 @@ class DrinkDetailFragment : Fragment() {
                         // Remove the listener
                         binding.image.viewTreeObserver.removeOnGlobalLayoutListener(layoutListener)
                     }
-
                 })
         }
         binding.image.viewTreeObserver.addOnGlobalLayoutListener(layoutListener)

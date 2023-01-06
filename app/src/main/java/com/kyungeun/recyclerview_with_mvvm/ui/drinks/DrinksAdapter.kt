@@ -59,7 +59,7 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
 
         Glide.with(itemBinding.root.context)
             .load(item.image)
-            .override(512,512)
+            .override(512, 512)
             .dontAnimate()
             .error(R.drawable.error)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
