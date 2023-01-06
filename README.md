@@ -1,6 +1,7 @@
 # Android Recyclerview with MVVM Sample
 
 A simple demo project based on Recyclerview with MVVM clean architecture.
+Image loading optimization is done using Glide.
 
 Libraries used on the sample project
 ------------------------------------
