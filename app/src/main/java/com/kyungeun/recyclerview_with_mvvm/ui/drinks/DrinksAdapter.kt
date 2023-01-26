@@ -68,6 +68,6 @@ class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val lis
     }
 
     override fun onClick(v: View?) {
-        listener.onClickedDrink(user.id)
+        listener.onClickedDrink(user.id!!)
     }
 }
