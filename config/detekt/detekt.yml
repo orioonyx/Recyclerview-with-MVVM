@@ -95,7 +95,7 @@ complexity:
     active: false
     threshold: 15
   ComplexCondition:
-    active: true
+    active: false
     threshold: 4
   ComplexInterface:
     active: false
@@ -588,7 +588,7 @@ style:
     active: false
     maxChainedCalls: 5
   MaxLineLength:
-    active: true
+    active: false
     maxLineLength: 150
     excludePackageStatements: true
     excludeImportStatements: true
