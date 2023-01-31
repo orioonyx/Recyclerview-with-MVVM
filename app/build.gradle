@@ -21,7 +21,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kyungeun.recyclerview_with_mvvm.CustomTestRunner"
     }
 
     buildTypes {
@@ -38,7 +39,9 @@ android {
         jvmTarget = '1.8'
     }
     testOptions {
-        unitTests.returnDefaultValues = true
+        unitTests.all {
+            useJUnitPlatform()
+        }
     }
 }
 
@@ -50,13 +53,17 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     implementation 'androidx.databinding:databinding-runtime:7.1.2'
+    implementation 'com.google.ar:core:1.30.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
 
     // Mockito
     androidTestImplementation("org.mockito:mockito-android:2.24.5")
@@ -65,8 +72,8 @@ dependencies {
     // Coroutines Test
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
-    // Espresso
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // Fragment Test
+    debugImplementation 'androidx.fragment:fragment-testing:1.5.5'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -85,9 +92,13 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     // Hilt
-    def hilt_version = "2.43"
+    def hilt_version = "2.44"
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    // Hilt Test
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+    androidTestAnnotationProcessor "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     // Glide
     def glide_version = "4.14.2"
