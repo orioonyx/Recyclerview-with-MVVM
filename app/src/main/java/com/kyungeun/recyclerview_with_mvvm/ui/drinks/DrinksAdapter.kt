@@ -12,7 +12,7 @@ import com.kyungeun.recyclerview_with_mvvm.R
 import com.kyungeun.recyclerview_with_mvvm.data.entities.Drink
 import com.kyungeun.recyclerview_with_mvvm.databinding.ItemDrinkBinding
 
-class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adapter<DrinkViewHolder>() {
+class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adapter<DrinksAdapter.DrinkViewHolder>() {
 
     interface DrinkItemListener {
         fun onClickedDrink(drinkId: Int)
@@ -35,39 +35,39 @@ class DrinksAdapter(private val listener: DrinkItemListener) : RecyclerView.Adap
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) = holder.bind(items[position])
-}
 
-class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val listener: DrinksAdapter.DrinkItemListener) :
-    RecyclerView.ViewHolder(itemBinding.root),
-    View.OnClickListener {
+    inner class DrinkViewHolder(private val itemBinding: ItemDrinkBinding, private val listener: DrinkItemListener) :
+        RecyclerView.ViewHolder(itemBinding.root),
+        View.OnClickListener {
 
-    private lateinit var user: Drink
+        private lateinit var user: Drink
 
-    init {
-        itemBinding.root.setOnClickListener(this)
-    }
+        init {
+            itemBinding.root.setOnClickListener(this)
+        }
 
-    @SuppressLint("SetTextI18n")
-    fun bind(item: Drink) {
-        this.user = item
-        itemBinding.category.text = item.category
-        itemBinding.alcoholic.text = item.alcoholic
-        itemBinding.name.text = item.name
+        @SuppressLint("SetTextI18n")
+        fun bind(item: Drink) {
+            this.user = item
+            itemBinding.category.text = item.category
+            itemBinding.alcoholic.text = item.alcoholic
+            itemBinding.name.text = item.name
 
-        // Set the signature to be the last modified time of the image file.
-        val imageMetadata = item.dateModified?.let { ObjectKey(it) } ?: ObjectKey("")
+            // Set the signature to be the last modified time of the image file.
+            val imageMetadata = item.dateModified?.let { ObjectKey(it) } ?: ObjectKey("")
 
-        Glide.with(itemBinding.root.context)
-            .load(item.image)
-            .override(512, 512)
-            .dontAnimate()
-            .error(R.drawable.error)
-            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-            .signature(imageMetadata)
-            .into(itemBinding.image)
-    }
+            Glide.with(itemBinding.root.context)
+                .load(item.image)
+                .override(512, 512)
+                .dontAnimate()
+                .error(R.drawable.error)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                .signature(imageMetadata)
+                .into(itemBinding.image)
+        }
 
-    override fun onClick(v: View?) {
-        listener.onClickedDrink(user.id!!)
+        override fun onClick(v: View?) {
+            listener.onClickedDrink(user.id!!)
+        }
     }
 }
